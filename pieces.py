@@ -29,12 +29,15 @@ class Bishop(Piece):
     def check_move(self, source_x, source_y, dest_x, dest_y, board):
         changex = dest_x - source_x
         changey = dest_y - source_y
+        stepx = np.sign(changex)
+        stepy = np.sign(changey)
+        row = source_y + stepy
         if changex == changey == 0:
             return False
         if abs(changex) != abs(changey):
             return False
-        for i in range (source_x, dest_x, np.sign(changex)):
-            for j in range (source_y, dest_y, np.sign(changey)):
-                if board.getPiece(i, j) is not None:
-                    return False
+        for i in range (source_x + stepx, dest_x, stepx):
+            if board.getPiece(i, row) is not None:
+                return False
+            row += stepy
         return True
