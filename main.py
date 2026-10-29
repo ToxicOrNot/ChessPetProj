@@ -10,7 +10,7 @@ board.placePiece(2, 0, Rook("white", "queenSide"))
 board.movePiece(2, 0, 5, 1)
 
 
-for x in range(8):
-    for y in range(8):
+for y in range(8):
+    for x in range(8):
         print(board.getPiece(x, y), end=" ")
     print("")
