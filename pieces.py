@@ -1,8 +1,8 @@
 
 class Piece:
-    def __init__(self, color, name):
+    def __init__(self, color, id):
         self.color = color
-        self.name = name
+        self.name = id
 
 class Rook(Piece):
     def check_move(self, source_row, source_col, dest_row, dest_col, board):
