@@ -1,4 +1,3 @@
-from boardFile import board
 
 class Piece:
     def __init__(self, color, name):
@@ -6,7 +5,7 @@ class Piece:
         self.name = name
 
 class Rook(Piece):
-    def check_move(self, source_row, source_col, dest_row, dest_col):
+    def check_move(self, source_row, source_col, dest_row, dest_col, board):
         if source_row == dest_row and source_col == dest_col:
             return False
         if source_row == dest_row:

@@ -14,13 +14,16 @@ class Board:
     def placePiece(self, x, y, piece):
         self.board[x][y] = piece
 
-    def move(self, x, y, destx, desty):
-        if self.board[x][y] is None:
+    def movePiece(self, x, y, destx, desty):
+        if self.getPiece(x, y) is None:
             print("Piece not found")
-        elif self.board[destx][desty] is not None:
+        elif self.getPiece(destx, desty) is not None:
             print("Destination is occupied")
         else:
-            self.placePiece(destx, desty, self.getPiece(x, y))
-            self.placePiece(x, y, None)
+            if self.getPiece(x,y).check_move(x, y, destx, desty, self):
+                self.placePiece(destx, desty, self.getPiece(x, y))
+                self.placePiece(x, y, None)
+            else:
+                print("Illegal move")
 
 board = Board()
