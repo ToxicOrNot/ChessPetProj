@@ -41,3 +41,9 @@ class Bishop(Piece):
                 return False
             row += stepy
         return True
+
+class Knight(Piece):
+    def check_move(self, source_x, source_y, dest_x, dest_y, board):
+        if (abs(source_x - dest_x) == 2 and abs(source_y - dest_y) == 1) or (abs(source_x - dest_x) == 1 and abs(source_y - dest_y) == 2):
+            return True
+        return False
