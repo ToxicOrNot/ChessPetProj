@@ -4,15 +4,15 @@ class Board:
         self.board = [[None for j in range(8)] for i in range(8)]
 
     def getPieceInfo(self, x, y):
-        if self.board[x][y] is not None:
-            return self.board[x][y].color + " " + self.board[x][y].name
+        if self.board[y][x] is not None:
+            return self.board[y][x].color + " " + self.board[y][x].name
         else: return None
 
     def getPiece(self, x, y):
-        return self.board[x][y]
+        return self.board[y][x]
 
     def placePiece(self, x, y, piece):
-        self.board[x][y] = piece
+        self.board[y][x] = piece
 
 
 
