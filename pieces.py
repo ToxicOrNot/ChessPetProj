@@ -5,19 +5,19 @@ class Piece:
         self.name = id
 
 class Rook(Piece):
-    def check_move(self, source_row, source_col, dest_row, dest_col, board):
-        if source_row == dest_row and source_col == dest_col:
+    def check_move(self, source_x, source_y, dest_x, dest_y, board):
+        if source_y == dest_y and source_x == dest_x:
             return False
-        if source_row == dest_row:
-            step = 1 if source_col < dest_col else -1
-            for i in range (source_col + step, dest_col, step):
-                if board.getPiece(source_row, i) is not None:
+        if source_y == dest_y:
+            step = 1 if source_x < dest_x else -1
+            for i in range (source_x + step, dest_x, step):
+                if board.getPiece(i, source_y) is not None:
                     return False
             return True
-        elif source_col == dest_col:
-            step = 1 if source_row < dest_row else -1
-            for i in range (source_row + step, dest_row, step):
-                if board.getPiece(i, source_col) is not None:
+        elif source_x == dest_x:
+            step = 1 if source_y < dest_y else -1
+            for i in range (source_y + step, dest_y, step):
+                if board.getPiece(source_x, i) is not None:
                     return False
             return True
         else:
